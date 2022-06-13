@@ -14,3 +14,8 @@ summary(model_2)
 
 model_1 = lm(Best.Builders~ Viraat+Shabari, data = df1)
 summary(model_1)
+write.csv(df1,"submission_2.csv")
+
+model_1 = lm(Best.Builders~ Shabari, data = df1)
+summary(model_1)
+write.csv(df1,"submission_2.csv")
