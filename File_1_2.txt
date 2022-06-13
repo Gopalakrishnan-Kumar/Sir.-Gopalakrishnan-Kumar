@@ -1,37 +1,16 @@
-> df1
-# A tibble: 9 x 7
-  Sr.No Particualrs                              Best.Builders  Viraat Shabari Raheja.Homes Society.Requireme~
-  <dbl> <chr>                                            <dbl>   <dbl>   <dbl>        <dbl>              <dbl>
-1     1 ADDL RERA  Carpet  area % on existing a~          21.5    24      21             27               30  
-2     2 Corpus Fund PSF                                 1300    1200     900            810             1300  
-3     3 Rent PSF                                          75      70      65             60               75  
-4     4 Shifting Allowance                             25000   15000       0              0            25000  
-5     5 Brokerage psf                                     75       0       0              0               75  
-6     6 Bank Guarantee in cr                               1.5     1       0              0                1.5
-7     7 No.of Floors stilt +                              14      11      11              9               11  
-8     8 Floor Height                                      10       9.6     9.6           10               10  
-9     9 Completion Time ( Months)                         36      18      24             18               18  
-> model_1 = glm(Best.Builders~ Viraat, data = df1, family = 'binomial')
-Error in eval(family$initialize) : y values must be 0 <= y <= 1
-> getwd()
-[1] "D:/"
-> model_1 = lm(Best.Builders~ Viraat, data = df1)
-> summary(model_1)
+getwd()
+setwd("D:/")
+library("readxl")
+df1 = read_excel("Comarative table showing offers from Developers Data Analytics.xls")
+df1
+write.csv(df1,"submission.csv")
+colnames(df1)=make.names(names(df1))
+model_1 = lm(Best.Builders~ Viraat, data = df1)
+summary(model_1)
+library(randomForest)
+model_2 <- randomForest(Best.Builders~ Viraat, data = df1, ntree=1000,
+                       keep.forest=FALSE, importance=TRUE)
+summary(model_2)
 
-Call:
-lm(formula = Best.Builders ~ Viraat, data = df1)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--622.09   49.28   74.37   80.23  155.39 
-
-Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) -80.39463   90.06077  -0.893    0.402    
-Viraat        1.66874    0.01795  92.943  4.4e-12 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 251.9 on 7 degrees of freedom
-Multiple R-squared:  0.9992,	Adjusted R-squared:  0.9991 
-F-statistic:  8638 on 1 and 7 DF,  p-value: 4.397e-12
+model_1 = lm(Best.Builders~ Viraat+Shabari, data = df1)
+summary(model_1)
