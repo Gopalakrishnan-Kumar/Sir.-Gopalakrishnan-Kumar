@@ -29,3 +29,11 @@ model_1 = lm(Best.Builders~ Raheja.Homes, data = df1)
 summary(model_1)
 write.csv(df1,"submission_2.csv")
 
+model_1 = lm(Best.Builders~ Raheja.Homes+Shabari, data = df1)
+summary(model_1)
+write.csv(df1,"submission_2.csv")
+
+model_1 = lm(Best.Builders~ Raheja.Homes+Viraat, data = df1)
+summary(model_1)
+write.csv(df1,"submission_2.csv")
+
