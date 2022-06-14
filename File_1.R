@@ -9,7 +9,7 @@ model_1 = lm(Best.Builders~ Viraat, data = df1)
 summary(model_1)
 library(randomForest)
 model_2 <- randomForest(Best.Builders~ Viraat, data = df1, ntree=1000,
-                       keep.forest=FALSE, importance=TRUE)
+                        keep.forest=FALSE, importance=TRUE)
 summary(model_2)
 
 model_1 = lm(Best.Builders~ Viraat+Shabari, data = df1)
@@ -27,5 +27,19 @@ write.csv(df1,"submission_2.csv")
 
 model_1 = lm(Best.Builders~ Raheja.Homes, data = df1)
 summary(model_1)
+write.csv(df1,"submission_2.csv")
+
+model_1 = lm(Best.Builders~ Raheja.Homes+Shabari, data = df1)
+summary(model_1)
+write.csv(df1,"submission_2.csv")
+
+model_1 = lm(Best.Builders~ Raheja.Homes+Viraat, data = df1)
+summary(model_1)
+plot(model_1)
+write.csv(df1,"submission_2.csv")
+
+model_1 = lm(Best.Builders~ Raheja.Homes+Viraat+Shabari, data = df1)
+summary(model_1)
+plot(model_1)
 write.csv(df1,"submission_2.csv")
 
