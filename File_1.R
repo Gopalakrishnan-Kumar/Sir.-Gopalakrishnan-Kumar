@@ -57,3 +57,8 @@ model_1 = lm(Best.Builders~ Shabari+Society.Requirement, data = df1)
 summary(model_1)
 plot(model_1)
 write.csv(df1,"submission_2.csv")
+
+model_1 = lm(Best.Builders~ Society.Requirement, data = df1)
+summary(model_1)
+plot(model_1)
+write.csv(df1,"submission_2.csv")
