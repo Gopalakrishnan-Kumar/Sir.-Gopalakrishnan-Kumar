@@ -1,5 +1,5 @@
 getwd()
-setwd("D:/")
+setwd("D:/GOPAL R PRG FILES")
 library("readxl")
 df1 = read_excel("Comarative table showing offers from Developers Data Analytics.xls")
 df1
