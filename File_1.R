@@ -143,8 +143,41 @@ summary(model_1)
 plot(model_1)
 write.csv(df1,"submission_2.csv")
 
-model_1 = lm(Best.Builders~ Society.Requirement + Viraat + Shabari +Best.Builders, data = df1)
+model_1 = lm(Best.Builders~ Viraat + Shabari + Raheja.Homes, data = df1)
 summary(model_1)
 plot(model_1)
 write.csv(df1,"submission_2.csv")
 
+model_1 = lm(Best.Builders~ Viraat + Shabari + Raheja.Homes, data = df1)
+summary(model_1)
+plot(model_1)
+write.csv(df1,"submission_2.csv")
+
+
+model_1 = lm(Best.Builders~Best.Builders, data = df1)
+summary(model_1)
+plot(model_1)
+write.csv(df1,"submission_2.csv")
+
+library(randomForest)
+model_2 <- randomForest(Best.Builders~ Shabari, data = df1, ntree=500,
+                        keep.forest=FALSE, importance=TRUE)
+summary(model_2)
+plot(model_2)
+write.csv(df1,"submission_2.csv")
+
+
+library(randomForest)
+model_2 <- randomForest(Best.Builders~ Shabari + Viraat, data = df1, ntree=500,
+                        keep.forest=FALSE, importance=TRUE)
+summary(model_2)
+plot(model_2)
+write.csv(df1,"submission_2.csv")
+
+
+library(randomForest)
+model_2 <- randomForest(Best.Builders~ Raheja.Homes + Shabari + Viraat, data = df1, ntree=500,
+                        keep.forest=FALSE, importance=TRUE)
+summary(model_2)
+plot(model_2)
+write.csv(df1,"submission_2.csv")
