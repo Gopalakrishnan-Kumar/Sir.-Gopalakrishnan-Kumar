@@ -8,12 +8,12 @@ colnames(df1)=make.names(names(df1))
 
 
 library(randomForest)
-model_2 <- randomForest(Best.Builders~Viraat + Raheja.Homes + 
-                          Shabari + Viraat , data = df1, 
+model_2 <- randomForest(Best.Builders~ Raheja.Homes, data = df1, 
                         ntree=500,
                         keep.forest=FALSE, 
                         importance=TRUE)
 summary(model_2)
 plot(model_2)
 write.csv(df1,"submission_2.csv")
+
 
