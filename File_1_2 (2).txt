@@ -8,7 +8,7 @@ colnames(df1)=make.names(names(df1))
 
 
 library(randomForest)
-model_2 <- randomForest(Best.Builders~ Raheja.Homes, data = df1, 
+model_2 <- randomForest(Best.Builders~ Raheja.Homes+Shabari+Shabari, data = df1, 
                         ntree=500,
                         keep.forest=FALSE, 
                         importance=TRUE)
